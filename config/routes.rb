@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  devise_for :users
-=======
->>>>>>> 989310c6496dd8bdd38d8f2d22ed6acf0d48d5bb
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
