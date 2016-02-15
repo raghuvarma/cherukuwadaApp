@@ -28,6 +28,8 @@ gem "devise"
 # Active Admin + Required Gems
 gem 'activeadmin', github: 'activeadmin'
 
+gem 'rhc'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
