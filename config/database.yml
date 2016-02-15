@@ -81,7 +81,15 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: cherukuwadaApp_production
-  username: cherukuwadaApp
-  password: <%= ENV['CHERUKUWADAAPP_DATABASE_PASSWORD'] %>
+  #<<: *default
+  pool: 5
+  timeout: 5000
+  encoding: utf8
+  adapter: postgresql
+  database: cherukuwadaapp
+  username: adminisbdvgr
+  password: mXYqTxA3g-T9
+  host:     localhost
+  port:     5432
+  min_messages: ERROR
+  reconnect: false
