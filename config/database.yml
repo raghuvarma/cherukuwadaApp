@@ -89,7 +89,7 @@ production:
   database: cherukuwadaapp
   username: adminisbdvgr
   password: mXYqTxA3g-T9
-  host:     localhost
+  host:     127.5.48.130
   port:     5432
   min_messages: ERROR
   reconnect: false
