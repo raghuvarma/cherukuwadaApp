@@ -1,0 +1,10 @@
+<%= nav_bar fixed: :top, brand: "Cherukuwada Application", responsive: true do %>
+    <%= menu_group do %>
+        <%= menu_item "Home", root_path %>
+        <%= menu_divider %>
+        <%= menu_item "Posts", posts_path %>
+    <% end %>
+    <%= menu_group pull: :right do %>
+        <%= menu_item "Log Out", posts_path %>        
+    <% end %>
+<% end %>
