@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  event_on: 2016-02-19 11:44:21
+  is_repeated: false
+
+two:
+  name: MyString
+  description: MyText
+  event_on: 2016-02-19 11:44:21
+  is_repeated: false

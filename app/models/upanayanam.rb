@@ -1,0 +1,2 @@
+class Upanayanam < Event
+end

@@ -1,0 +1,2 @@
+class Birthday < Event
+end

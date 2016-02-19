@@ -1,0 +1,2 @@
+class MarriageAnniversary < Event
+end
