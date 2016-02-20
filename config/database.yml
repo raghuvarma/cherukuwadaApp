@@ -87,9 +87,5 @@ production:
   encoding: utf8
   adapter: postgresql
   database: cherukuwadaapp
-  username: adminisbdvgr
-  password: mXYqTxA3g-T9
-  host:     127.5.48.130
-  port:     5432
-  min_messages: ERROR
-  reconnect: false
+  username: postgres
+  password: 
