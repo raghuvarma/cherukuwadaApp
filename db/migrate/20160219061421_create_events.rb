@@ -5,6 +5,7 @@ class CreateEvents < ActiveRecord::Migration
       t.text :description
       t.datetime :event_on
       t.boolean :is_repeated
+      t.string :type
 
       t.timestamps null: false
     end
