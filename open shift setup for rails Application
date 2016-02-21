@@ -1,0 +1,688 @@
+open shift setup for rails Application
+#########################################
+
+
+
+G:\Rails_Project\cherukuwadaApp>rhc app create cherukuwadaapp ruby-2.1
+DL is deprecated, please use Fiddle
+RSA 1024 bit CA certificates are loaded due to old openssl compatibility
+Short Name           Full name
+==========           =========
+cron-1.4             Cron 1.4
+diy-0.1              Do-It-Yourself 0.1
+jbossas-7            JBoss Application Server 7
+jboss-dv-6.1.0       JBoss Data Virtualization 6
+jbosseap-6           JBoss Enterprise Application Platform 6
+jboss-unified-push-1 JBoss Unified Push Server 1.0.0.Beta1
+jboss-unified-push-2 JBoss Unified Push Server 1.0.0.Beta2
+jenkins-client-1     Jenkins Client
+jenkins-1            Jenkins Server
+mongodb-2.4          MongoDB 2.4
+mysql-5.1            MySQL 5.1
+mysql-5.5            MySQL 5.5
+nodejs-0.10          Node.js 0.10
+perl-5.10            Perl 5.10
+php-5.3              PHP 5.3
+php-5.4              PHP 5.4
+zend-6.1             PHP 5.4 with Zend Server 6.1
+phpmyadmin-4         phpMyAdmin 4.0
+postgresql-8.4       PostgreSQL 8.4
+postgresql-9.2       PostgreSQL 9.2
+python-2.6           Python 2.6
+python-2.7           Python 2.7
+python-3.3           Python 3.3
+rockmongo-1.1        RockMongo 1.1
+ruby-1.8             Ruby 1.8
+ruby-1.9             Ruby 1.9
+ruby-2.0             Ruby 2.0
+switchyard-0         SwitchYard 0.8.0
+jbossews-1.0         Tomcat 6 (JBoss EWS 1.0)
+jbossews-2.0         Tomcat 7 (JBoss EWS 2.0)
+jboss-vertx-2.1      Vert.x 2.1
+haproxy-1.4          Web Load Balancer
+jboss-wildfly-10     WildFly Application Server 10
+jboss-wildfly-8      WildFly Application Server 8.2.1.Final
+jboss-wildfly-9      WildFly Application Server 9
+
+There are no cartridges that match 'ruby-2.1'.
+
+
+
+
+
+
+
+G:\Rails_Project\cherukuwadaApp>rhc app create cherukuwadaapp ruby-2.0
+DL is deprecated, please use Fiddle
+RSA 1024 bit CA certificates are loaded due to old openssl compatibility
+Application Options
+-------------------
+Domain:     raghuvarma
+Cartridges: ruby-2.0
+Gear Size:  default
+Scaling:    no
+
+Creating application 'cherukuwadaapp' ... done
+
+
+Waiting for your DNS name to be available ... done
+
+You do not have git installed, so your application's git repo will not be cloned
+
+
+Your application 'cherukuwadaapp' is now available.
+
+  URL:        http://cherukuwadaapp-raghuvarma.rhcloud.com/
+  SSH to:     56c887c90c1e66b23f000007@cherukuwadaapp-raghuvarma.rhcloud.com
+  Git remote: ssh://56c887c90c1e66b23f000007@cherukuwadaapp-raghuvarma.rhcloud.c
+om/~/git/cherukuwadaapp.git/
+
+Run 'rhc show-app cherukuwadaapp' for more details about your app.
+
+
+
+
+
+G:\Rails_Project\cherukuwadaApp>rhc show-app cherukuwadaapp
+DL is deprecated, please use Fiddle
+RSA 1024 bit CA certificates are loaded due to old openssl compatibility
+cherukuwadaapp @ http://cherukuwadaapp-raghuvarma.rhcloud.com/
+  (uuid: 56c887c90c1e66b23f000007)
+--------------------------------------------------------------
+  Domain:     raghuvarma
+  Created:    9:05 PM
+  Gears:      1 (defaults to small)
+  Git URL:    ssh://56c887c90c1e66b23f000007@cherukuwadaapp-raghuvarma.rhcloud.c
+om/~/git/cherukuwadaapp.git/
+  SSH:        56c887c90c1e66b23f000007@cherukuwadaapp-raghuvarma.rhcloud.com
+  Deployment: auto (on git push)
+
+  ruby-2.0 (Ruby 2.0)
+  -------------------
+    Gears: Located with postgresql-9.2
+
+  postgresql-9.2 (PostgreSQL 9.2)
+  -------------------------------
+    Gears:          Located with ruby-2.0
+    Connection URL: postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGR
+ESQL_DB_PORT
+    Database Name:  cherukuwadaapp
+    Password:       cjqzEFmaTUyd
+    Username:       adminecd9zfk
+
+
+
+
+
+
+
+
+G:\Rails_Project\cherukuwadaApp>rhc cartridge add -a cherukuwadaapp -c postgresq
+l-9.2
+DL is deprecated, please use Fiddle
+RSA 1024 bit CA certificates are loaded due to old openssl compatibility
+Adding postgresql-9.2 to application 'cherukuwadaapp' ... done
+
+postgresql-9.2 (PostgreSQL 9.2)
+-------------------------------
+  Gears:          Located with ruby-2.0
+  Connection URL: postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRES
+QL_DB_PORT
+  Database Name:  cherukuwadaapp
+  Password:       cjqzEFmaTUyd
+  Username:       adminecd9zfk
+
+PostgreSQL 9.2 database added.  Please make note of these credentials:
+
+   Root User: adminecd9zfk
+   Root Password: cjqzEFmaTUyd
+   Database Name: cherukuwadaapp
+
+Connection URL:
+postgresql://$OPENSHIFT_POSTGRESQL_DB_HOST:$OPENSHIFT_POSTGRESQL_DB_PORT
+
+
+
+
+http://jenkins-raghuvarma.rhcloud.com/
+
+
+
+
+
+
+
+
+
+G:\Rails_Project\cherukuwadaApp>git pull -s recursive -X theirs upstream master
+From https://github.com/raghuvarma/cherukuwadaApp
+ * branch            master     -> FETCH_HEAD
+Already up-to-date.
+
+G:\Rails_Project\cherukuwadaApp>
+G:\Rails_Project\cherukuwadaApp>
+G:\Rails_Project\cherukuwadaApp>git push
+warning: push.default is unset; its implicit value is changing in
+Git 2.0 from 'matching' to 'simple'. To squelch this message
+and maintain the current behavior after the default changes, use:
+
+  git config --global push.default matching
+
+To squelch this message and adopt the new behavior now, use:
+
+  git config --global push.default simple
+
+When push.default is set to 'matching', git will push local branches
+to the remote branches that already exist with the same name.
+
+In Git 2.0, Git will default to the more conservative 'simple'
+behavior, which only pushes the current branch to the corresponding
+remote branch that 'git pull' uses to update the current branch.
+
+See 'git help config' and search for 'push.default' for further information.
+(the 'simple' mode was introduced in Git 1.7.11. Use the similar mode
+'current' instead of 'simple' if you sometimes use older versions of Git)
+
+Everything up-to-date
+
+G:\Rails_Project\cherukuwadaApp>
+
+
+
+
+
+
+
+dowloading and installing heroku toolbelt
+
+
+G:\Rails_Project\cherukuwadaApp>heroku login
+heroku-cli: Installing Toolbelt v4... done
+For more information on Toolbelt v4: https://github.com/heroku/heroku-cli
+heroku-cli: Adding dependencies... done
+heroku-cli: Installing core plugins... done
+Enter your Heroku credentials.
+Email: rrv461@gmail.com
+Password (typing will be hidden):
+Logged in as rrv461@gmail.com
+
+
+
+
+
+username: rrvg461@gmail.com
+pass: raghu461
+
+
+
+
+
+
+gem 'rails_12factor', group: :production
+
+
+
+
+
+
+
+G:\Rails_Project\cherukuwadaApp>bundle
+DL is deprecated, please use Fiddle
+Fetching gem metadata from https://rubygems.org/.........
+Fetching version metadata from https://rubygems.org/...
+Fetching dependency metadata from https://rubygems.org/..
+Resolving dependencies....
+Using rake 10.5.0
+Using i18n 0.7.0
+Using json 1.8.3
+Using minitest 5.8.4
+Using thread_safe 0.3.5
+Using builder 3.2.2
+Using erubis 2.7.0
+Using mini_portile2 2.0.0
+Using rack 1.6.4
+Using mime-types 2.99
+Using sass 3.4.21
+Using thor 0.19.1
+Using coffee-script-source 1.10.0
+Using execjs 2.6.0
+Using formtastic_i18n 0.5.0
+Using arel 6.0.3
+Using bundler 1.11.2
+Using concurrent-ruby 1.0.0
+Using tilt 2.0.2
+Using archive-tar-minitar 0.5.2
+Using bcrypt 3.1.10
+Using debug_inspector 0.0.2
+Using byebug 8.2.2
+Using highline 1.6.21
+Using commonjs 0.2.7
+Using daemons 1.2.3
+Using orm_adapter 0.5.0
+Using eventmachine 1.0.9.1
+Using httpclient 2.7.1
+Using multi_json 1.11.2
+Using net-ssh 2.9.2
+Using open4 1.3.4
+Using pg 0.18.4
+Installing rails_serve_static_assets 0.0.5
+Installing rails_stdout_logging 0.0.4
+Using rdoc 4.2.2
+Using tzinfo 1.2.2
+Using nokogiri 1.6.7.2
+Using rack-test 0.6.3
+Using warden 1.2.6
+Using mail 2.6.3
+Using bourbon 4.2.6
+Using coffee-script 2.4.1
+Using uglifier 2.7.2
+Using sprockets 3.5.2
+Using binding_of_caller 0.7.2
+Using commander 4.2.1
+Using less 2.6.0
+Using thin 1.6.4
+Using net-scp 1.2.1
+Using net-ssh-gateway 1.2.0
+Installing rails_12factor 0.0.3
+Using sdoc 0.4.1
+Using activesupport 4.2.5
+Using tzinfo-data 1.2016.1
+Using loofah 2.0.3
+Using net-ssh-multi 1.2.1
+Using rails-deprecated_sanitizer 1.0.3
+Using globalid 0.3.6
+Using arbre 1.0.3
+Using activemodel 4.2.5
+Using jbuilder 2.4.1
+Using rails-html-sanitizer 1.0.3
+Using rhc 1.38.4
+Using rails-dom-testing 1.0.7
+Using activejob 4.2.5
+Using activerecord 4.2.5
+Using actionview 4.2.5
+Using polyamorous 1.3.0
+Using actionpack 4.2.5
+Using actionmailer 4.2.5
+Using railties 4.2.5
+Using formtastic 3.1.3
+Using has_scope 0.6.0
+Using kaminari 0.16.3
+Using sprockets-rails 3.0.1
+Using ransack 1.7.0
+Using less-rails 2.7.1
+Using coffee-rails 4.1.1
+Using responders 2.1.1
+Using jquery-rails 4.1.0
+Using jquery-ui-rails 5.0.5
+Using rails 4.2.5
+Using sass-rails 5.0.4
+Using web-console 2.3.0
+Using twitter-bootstrap-rails 3.2.2 from git://github.com/seyhunak/twitter-boots
+trap-rails.git (at master@c6893c3)
+Using turbolinks 2.5.3
+Using inherited_resources 1.6.0
+Using devise 3.5.6
+Using activeadmin 1.0.0.pre2 from git://github.com/activeadmin/activeadmin.git (
+at master@0a175de)
+Bundle complete! 19 Gemfile dependencies, 90 gems now installed.
+Use `bundle show [gemname]` to see where a bundled gem is installed.
+Post-install message from twitter-bootstrap-rails:
+Important: You may need to add a javascript runtime to your Gemfile in order for
+ bootstrap's LESS files to compile to CSS.
+
+**********************************************
+
+ExecJS supports these runtimes:
+
+therubyracer - Google V8 embedded within Ruby
+
+therubyrhino - Mozilla Rhino embedded within JRuby
+
+Node.js
+
+Apple JavaScriptCore - Included with Mac OS X
+
+Microsoft Windows Script Host (JScript)
+
+**********************************************
+
+G:\Rails_Project\cherukuwadaApp>heroku create
+Creating app... done, stack is cedar-14
+https://hidden-lake-44952.herokuapp.com/ | https://git.heroku.com/hidden-lake-44
+952.git
+
+G:\Rails_Project\cherukuwadaApp>
+
+
+
+
+
+git push heroku master
+
+
+
+remote:        Installing pg 0.18.4
+remote:        Installing rdoc 4.2.2
+remote:        Installing mail 2.6.3
+remote:        Installing rack-test 0.6.3
+remote:        Installing warden 1.2.6
+remote:        Installing bourbon 4.2.6
+remote:        Installing coffee-script 2.4.1
+remote:        Installing uglifier 2.7.2
+remote:        Installing sprockets 3.5.2
+remote:        Installing less 2.6.0
+remote:        Installing commander 4.2.1
+remote:        Installing net-scp 1.2.1
+remote:        Installing net-ssh-gateway 1.2.0
+remote:        Installing rails_12factor 0.0.3
+remote:        Installing nokogiri 1.6.7.2
+remote:        Installing eventmachine 1.0.9.1
+remote:        Installing activesupport 4.2.5
+remote:        Installing net-ssh-multi 1.2.1
+remote:        Installing sdoc 0.4.1
+remote:        Installing loofah 2.0.3
+remote:        Installing rails-deprecated_sanitizer 1.0.3
+remote:        Installing globalid 0.3.6
+remote:        Installing arbre 1.0.3
+remote:        Installing activemodel 4.2.5
+remote:        Installing jbuilder 2.4.1
+remote:        Installing rhc 1.38.4
+remote:        Installing rails-html-sanitizer 1.0.3
+remote:        Installing rails-dom-testing 1.0.7
+remote:        Installing activejob 4.2.5
+remote:        Installing activerecord 4.2.5
+remote:        Installing actionview 4.2.5
+remote:        Installing polyamorous 1.3.0
+remote:        Installing actionpack 4.2.5
+remote:        Installing actionmailer 4.2.5
+remote:        Installing railties 4.2.5
+remote:        Installing formtastic 3.1.3
+remote:        Installing therubyracer 0.12.2
+remote:        Installing has_scope 0.6.0
+remote:        Installing kaminari 0.16.3
+remote:        Installing sprockets-rails 3.0.1
+remote:        Installing thin 1.6.4
+remote:        Installing ransack 1.7.0
+remote:        Installing coffee-rails 4.1.1
+remote:        Installing less-rails 2.7.1
+remote:        Installing responders 2.1.1
+remote:        Installing jquery-rails 4.1.0
+remote:        Installing jquery-ui-rails 5.0.5
+remote:        Installing sass-rails 5.0.4
+remote:        Using twitter-bootstrap-rails 3.2.2 from git://github.com/seyhuna
+k/twitter-bootstrap-rails.git (at master)
+remote:        Installing rails 4.2.5
+remote:        Installing turbolinks 2.5.3
+remote:        Installing inherited_resources 1.6.0
+remote:        Using activeadmin 1.0.0.pre2 from git://github.com/activeadmin/ac
+tiveadmin.git (at master)
+remote:        Installing devise 3.5.6
+remote:        Bundle complete! 19 Gemfile dependencies, 88 gems now installed.
+remote:        Gems in the groups development and test were not installed.
+remote:        Bundled gems are installed into ./vendor/bundle.
+remote:        Post-install message from rdoc:
+remote:        Depending on your version of ruby, you may need to install ruby r
+doc/ri data:
+remote:        <= 1.8.6 : unsupported
+remote:        = 1.8.7 : gem install rdoc-data; rdoc-data --install
+remote:        = 1.9.1 : gem install rdoc-data; rdoc-data --install
+remote:        >= 1.9.2 : nothing to do! Yay!
+remote:        Post-install message from rhc:
+remote:        =================================================================
+==========
+remote:        If this is your first time installing the RHC tools, please run '
+rhc setup'
+remote:        =================================================================
+==========
+remote:        Post-install message from twitter-bootstrap-rails:
+remote:        Important: You may need to add a javascript runtime to your Gemfi
+le in order for bootstrap's LESS files to compile to CSS.
+remote:        **********************************************
+remote:        ExecJS supports these runtimes:
+remote:        therubyracer - Google V8 embedded within Ruby
+remote:        therubyrhino - Mozilla Rhino embedded within JRuby
+remote:        Node.js
+remote:        Apple JavaScriptCore - Included with Mac OS X
+remote:        Microsoft Windows Script Host (JScript)
+remote:        **********************************************
+remote:        Bundle completed (49.30s)
+remote:        Cleaning up the bundler cache.
+remote: -----> Preparing app for Rails asset pipeline
+remote:        Running: rake assets:precompile
+remote:        I, [2016-02-20T17:34:27.381988 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/active_admin-d8622bdaf9113ddf7
+612d53b1135dee0cfce37d0a4d7e786ec70fccdaf4ffe66.css
+remote:        I, [2016-02-20T17:34:27.382575 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/active_admin-d8622bdaf9113ddf7
+612d53b1135dee0cfce37d0a4d7e786ec70fccdaf4ffe66.css.gz
+remote:        I, [2016-02-20T17:34:27.383419 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/active_admin/nested_menu_arrow
+-15084d93c65c1964d7077700ea748bd2d70cfa2d4c19707c58a9c64e232dd442.gif
+remote:        I, [2016-02-20T17:34:27.384005 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/active_admin/nested_menu_arrow
+_dark-7c43b8e0a5f8823875f49a093c9d7a6b374f885b6f9cc248ae9cd7e6e9b29034.gif
+remote:        I, [2016-02-20T17:34:27.385577 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/active_admin/datepicker/datepi
+cker-input-icon-d9c2bb73769af777c8a71720d29741f3a499aebd5a043e9a119bd0d9597aed47
+.png
+remote:        I, [2016-02-20T17:34:27.386602 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/active_admin/orderable-29374db
+b55b0012d78a37c614d573bb3474f0779849b478a147d0f1845ca6617.png
+remote:        I, [2016-02-20T17:34:27.523554 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/active_admin/print-87c5ffc1d86
+9a919123bcc1dc5ec51b20bc79fd9aeab9eed77e3438c6acd4f68.css
+remote:        I, [2016-02-20T17:34:27.523731 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/active_admin/print-87c5ffc1d86
+9a919123bcc1dc5ec51b20bc79fd9aeab9eed77e3438c6acd4f68.css.gz
+remote:        I, [2016-02-20T17:34:33.189573 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/active_admin-a3e771a48f410d019
+b63d3258ce608f78261847e10578c65305786e4a00dca3a.js
+remote:        I, [2016-02-20T17:34:33.189760 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/active_admin-a3e771a48f410d019
+b63d3258ce608f78261847e10578c65305786e4a00dca3a.js.gz
+remote:        I, [2016-02-20T17:34:41.431128 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/application-e1da151548ccbd0b69
+3df30f711741d8d6d16ec93a93575fce81bd4f526f0592.js
+remote:        I, [2016-02-20T17:34:41.431297 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/application-e1da151548ccbd0b69
+3df30f711741d8d6d16ec93a93575fce81bd4f526f0592.js.gz
+remote:        I, [2016-02-20T17:34:42.521549 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/application-a8f1492cbfba7b534d
+492c5f8164a0abd6f689d7d4da313c1e91cefdd01d5f20.css
+remote:        I, [2016-02-20T17:34:42.521723 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/application-a8f1492cbfba7b534d
+492c5f8164a0abd6f689d7d4da313c1e91cefdd01d5f20.css.gz
+remote:        I, [2016-02-20T17:34:42.522990 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/glyphicons-halflings-regular-1
+3634da87d9e23f8c3ed9108ce1724d183a39ad072e73e1b3d8cbf646d2d0407.eot
+remote:        I, [2016-02-20T17:34:42.529327 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/glyphicons-halflings-regular-a
+26394f7ede100ca118eff2eda08596275a9839b959c226e15439557a5a80742.woff
+remote:        I, [2016-02-20T17:34:42.529718 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/glyphicons-halflings-regular-e
+395044093757d82afcb138957d06a1ea9361bdcf0b442d06a18a8051af57456.ttf
+remote:        I, [2016-02-20T17:34:42.530103 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/glyphicons-halflings-regular-4
+2f60659d265c1a3c30f9fa42abcbb56bd4a53af4d83d316d6dd7a36903c43e5.svg
+remote:        I, [2016-02-20T17:34:42.531231 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/glyphicons-halflings-regular-4
+2f60659d265c1a3c30f9fa42abcbb56bd4a53af4d83d316d6dd7a36903c43e5.svg.gz
+remote:        I, [2016-02-20T17:34:42.533798 #1525]  INFO -- : Writing /tmp/bui
+ld_c95e33c472986e686502afb3732cc4d2/public/assets/bootstrap_and_overrides.css-fa
+49fa0ecfa42d0ff7b6e19f64fbe23936d2e6541c857fc2e29afcf5dfe43160.less
+remote:        Asset precompilation completed (19.58s)
+remote:        Cleaning assets
+remote:        Running: rake assets:clean
+remote:
+remote: ###### WARNING:
+remote:        You have not declared a Ruby version in your Gemfile.
+remote:        To set your Ruby version add this line to your Gemfile:
+remote:        ruby '2.2.4'
+remote:        # See https://devcenter.heroku.com/articles/ruby-versions for mor
+e information.
+remote:
+remote: ###### WARNING:
+remote:        Removing `Gemfile.lock` because it was generated on Windows.
+remote:        Bundler will do a full resolve so native gems are handled properl
+y.
+remote:        This may result in unexpected gem versions being used in your app
+.
+remote:        In rare occasions Bundler may not be able to resolve your depende
+ncies at all.
+remote:        https://devcenter.heroku.com/articles/bundler-windows-gemfile
+remote:
+remote: ###### WARNING:
+remote:        No Procfile detected, using the default web server (webrick)
+remote:        https://devcenter.heroku.com/articles/ruby-default-web-server
+remote:
+remote: -----> Discovering process types
+remote:        Procfile declares types     -> (none)
+remote:        Default types for buildpack -> console, rake, web, worker
+remote:
+remote: -----> Compressing...
+remote:        Done: 51.3M
+remote: -----> Launching...
+remote:        Released v5
+remote:        https://hidden-lake-44952.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/hidden-lake-44952.git
+ * [new branch]      master -> master
+
+G:\Rails_Project\cherukuwadaApp> heroku run rake db:migrate
+Running rake db:migrate on hidden-lake-44952... up, run.9349
+   (9.5ms)  CREATE TABLE "schema_migrations" ("version" character varying NOT NU
+LL)
+   (7.8ms)  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migration
+s"  ("version")
+  ActiveRecord::SchemaMigration Load (12.8ms)  SELECT "schema_migrations".* FROM
+ "schema_migrations"
+Migrating to DeviseCreateAdminUsers (20160214170206)
+   (3.5ms)  BEGIN
+== 20160214170206 DeviseCreateAdminUsers: migrating ===========================
+-- create_table(:admin_users)
+   (10.9ms)  CREATE TABLE "admin_users" ("id" serial primary key, "email" charac
+ter varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT
+'' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at"
+timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NO
+T NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_si
+gn_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "update
+d_at" timestamp NOT NULL)
+   -> 0.0296s
+-- add_index(:admin_users, :email, {:unique=>true})
+   (6.8ms)  CREATE UNIQUE INDEX  "index_admin_users_on_email" ON "admin_users"
+("email")
+   -> 0.0196s
+-- add_index(:admin_users, :reset_password_token, {:unique=>true})
+   (4.6ms)  CREATE UNIQUE INDEX  "index_admin_users_on_reset_password_token" ON
+"admin_users"  ("reset_password_token")
+   -> 0.0112s
+== 20160214170206 DeviseCreateAdminUsers: migrated (0.0609s) ==================
+
+  SQL (1.3ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["versi
+on", "20160214170206"]]
+   (11.4ms)  COMMIT
+Migrating to CreateActiveAdminComments (20160214170328)
+   (6.5ms)  BEGIN
+== 20160214170328 CreateActiveAdminComments: migrating ========================
+-- create_table(:active_admin_comments)
+   (14.0ms)  CREATE TABLE "active_admin_comments" ("id" serial primary key, "nam
+espace" character varying, "body" text, "resource_id" character varying NOT NULL
+, "resource_type" character varying NOT NULL, "author_id" integer, "author_type"
+ character varying, "created_at" timestamp, "updated_at" timestamp)
+   -> 0.0188s
+-- add_index(:active_admin_comments, [:namespace])
+   (4.2ms)  CREATE  INDEX  "index_active_admin_comments_on_namespace" ON "active
+_admin_comments"  ("namespace")
+   -> 0.0090s
+-- add_index(:active_admin_comments, [:author_type, :author_id])
+   (6.2ms)  CREATE  INDEX  "index_active_admin_comments_on_author_type_and_autho
+r_id" ON "active_admin_comments"  ("author_type", "author_id")
+   -> 0.0121s
+-- add_index(:active_admin_comments, [:resource_type, :resource_id])
+   (3.6ms)  CREATE  INDEX  "index_active_admin_comments_on_resource_type_and_res
+ource_id" ON "active_admin_comments"  ("resource_type", "resource_id")
+   -> 0.0168s
+== 20160214170328 CreateActiveAdminComments: migrated (0.0574s) ===============
+
+  SQL (3.7ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["versi
+on", "20160214170328"]]
+   (3.2ms)  COMMIT
+Migrating to DeviseCreateUsers (20160214173010)
+   (2.2ms)  BEGIN
+== 20160214173010 DeviseCreateUsers: migrating ================================
+-- create_table(:users)
+   (8.0ms)  CREATE TABLE "users" ("id" serial primary key, "email" character var
+ying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT
+NULL, "reset_password_token" character varying, "reset_password_sent_at" timesta
+mp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL,
+ "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_i
+p" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" t
+imestamp NOT NULL)
+   -> 0.0191s
+-- add_index(:users, :email, {:unique=>true})
+   (3.9ms)  CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")
+   -> 0.0113s
+-- add_index(:users, :reset_password_token, {:unique=>true})
+   (4.5ms)  CREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users
+"  ("reset_password_token")
+   -> 0.0083s
+== 20160214173010 DeviseCreateUsers: migrated (0.0397s) =======================
+
+  SQL (8.1ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["versi
+on", "20160214173010"]]
+   (5.2ms)  COMMIT
+Migrating to CreatePosts (20160214194425)
+   (1.7ms)  BEGIN
+== 20160214194425 CreatePosts: migrating ======================================
+-- create_table(:posts)
+   (7.5ms)  CREATE TABLE "posts" ("id" serial primary key, "name" character vary
+ing, "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NU
+LL)
+   -> 0.0085s
+== 20160214194425 CreatePosts: migrated (0.0096s) =============================
+
+  SQL (1.9ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["versi
+on", "20160214194425"]]
+   (3.8ms)  COMMIT
+Migrating to CreateEvents (20160219061421)
+   (5.7ms)  BEGIN
+== 20160219061421 CreateEvents: migrating =====================================
+-- create_table(:events)
+   (8.2ms)  CREATE TABLE "events" ("id" serial primary key, "name" character var
+ying, "description" text, "event_on" timestamp, "is_repeated" boolean, "type" ch
+aracter varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NUL
+L)
+   -> 0.0091s
+== 20160219061421 CreateEvents: migrated (0.0093s) ============================
+
+  SQL (7.5ms)  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["versi
+on", "20160219061421"]]
+   (4.3ms)  COMMIT
+
+
+
+
+
+
+
+
+G:\Rails_Project\cherukuwadaApp> heroku ps:scale web=1
+Scaling dynos... done, now running web at 1:Free.
+heroku-cli: Updating... done.
+
+G:\Rails_Project\cherukuwadaApp>heroku ps
+=== web (Free): bin/rails server -p $PORT -e $RAILS_ENV (1
+web.1: up 2016/02/20 23:05:06 +0530 (~ 4m ago)
+
+
+G:\Rails_Project\cherukuwadaApp>heroku open
+Opening hidden-lake-44952... done
+
+
+
+
+
+
+
+

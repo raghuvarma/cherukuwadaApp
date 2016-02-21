@@ -17,3 +17,31 @@
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+
+<div class="col-md-12">
+  <%= link_to "New Comments", new_post_comments_path(@posts), class: "btn btn-primary" %>
+</div>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Created By</th>
+      <th>Created On</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <% if @posts.comments.count > 0 %>
+    <% @posts.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.name %></td>
+        <td><%= comment.created_by %></td>
+        <td><%= time_ago_in_words comment.created_at %> ago</td>
+        <td><%= link_to "Edit", edit_post_interaction_path(@posts, comment), class:"btn btn-default" %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="2">No comments found for this posts.  Click the 'New comments' button to create a new comment.</td>
+    </tr>
+  <% end %>
+</table>

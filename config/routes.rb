@@ -1,9 +1,25 @@
 Rails.application.routes.draw do
-  resources :posts
-  resources :events
+  # get 'comments/new'
+
+  # get 'comments/create'
+
+  # get 'comments/edit'
+
+  # get 'comments/update'
+
+  resources :events do 
+    resources :comments, only: [:new, :create, :edit, :update]
+  end
+
+  resources :posts do
+    resources :comments, only: [:new, :create, :edit, :update]
+  end
+
+  #resources :posts
+  #resources :events
   #get 'welcome/index'
   match "/posts" => "posts#index", via: :options  
-  resources :posts
+  #resources :posts
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
