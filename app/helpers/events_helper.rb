@@ -8,24 +8,24 @@ module EventsHelper
 		case 
 		when daysLeftOrComplete > 1
 		  #print('It is a string')
-		  daysLeftOrComplete.to_s + ' Days Left'
+		  Math.ceil(daysLeftOrComplete) + ' Days Left'
 		when daysLeftOrComplete == 1
 		  #print('It is a number')
-		  daysLeftOrComplete.to_s + ' Days Left'
+		  Math.ceil(daysLeftOrComplete) + ' Days Left'
 		when daysLeftOrComplete == 0
 		  #print('It is a number')
 		  newDaysRemain = daysRemain*1000 + 19800
 		  finalDaysRemain = newDaysRemain/(60*60*1000)
-		  finalDaysRemain.to_s + ' Hours left.'
+		  Math.ceil(finalDaysRemain) + ' Hours left.'
 		when daysLeftOrComplete == -1
 		  #print('It is a number')
 		  newDaysRemain = (daysRemain*1000* -1) + 19800
 		  finalDaysRemain = newDaysRemain/(60*60*1000)
-		  finalDaysRemain.to_s + ' Hours ago.'
+		  Math.ceil(finalDaysRemain) + ' Hours ago.'
 		else
 		  #print('It is not a string')
 		  daysLeftOrComplete = daysLeftOrComplete * - 1
-		  daysLeftOrComplete.to_s + ' Days Completed'
+		  Math.ceil(daysLeftOrComplete) + ' Days Completed'
 		end
 
 	end

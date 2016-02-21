@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :name
       t.text :body
+      t.string :created_by
 
       t.timestamps null: false
     end

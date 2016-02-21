@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :events
   #get 'welcome/index'
-
+  match "/posts" => "posts#index", via: :options  
   resources :posts
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
