@@ -1,0 +1,31 @@
+<h3>All Comments</h3>
+<!-- <p><%= @comments.inspect %></p> -->
+<!-- Comment id: 3, name: "testing comment3", created_by: "Maheswari K", commentable_id: 4, commentable_type: "Post", created_at: "2016-02-21 17:32:48", updated_at: "2016-02-21 17:32:48" -->
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Created By</th>
+      <th>Id</th>
+      <th>Type</th>
+      <th>Created On</th>
+    </tr>
+  </thead>
+  <% if @comments.count > 0 %>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.name %></td>
+        <td><%= comment.created_by %></td>
+        <td><%= comment.commentable_id %></td>
+        <td><%= comment.commentable_type %></td>
+        <td><%= time_ago_in_words comment.created_at %> ago</td>
+        
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="2">No comments found for this posts.  Click the 'New comments' button to create a new comment.</td>
+    </tr>
+  <% end %>
+</table>

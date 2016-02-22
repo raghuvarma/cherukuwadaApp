@@ -19,7 +19,7 @@
 <%= link_to 'Back', posts_path %>
 
 <div class="col-md-12">
-  <%= link_to "New Comments", new_post_comments_path(@posts), class: "btn btn-primary" %>
+  <%= link_to "New Comments", new_post_comment_path(@post), class: "btn btn-primary" %>
 </div>
 <table class="table table-bordered table-striped">
   <thead>
@@ -30,13 +30,13 @@
       <th>&nbsp;</th>
     </tr>
   </thead>
-  <% if @posts.comments.count > 0 %>
-    <% @posts.comments.each do |comment| %>
+  <% if @post.comments.count > 0 %>
+    <% @post.comments.each do |comment| %>
       <tr>
         <td><%= comment.name %></td>
         <td><%= comment.created_by %></td>
         <td><%= time_ago_in_words comment.created_at %> ago</td>
-        <td><%= link_to "Edit", edit_post_interaction_path(@posts, comment), class:"btn btn-default" %></td>
+        <td><%= link_to "Edit", edit_post_comment_path(@post, comment), class:"btn btn-default" %></td>
       </tr>
     <% end %>
   <% else %>

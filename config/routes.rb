@@ -8,17 +8,20 @@ Rails.application.routes.draw do
   # get 'comments/update'
 
   resources :events do 
-    resources :comments, only: [:new, :create, :edit, :update]
+    resources :comments
+    match "/comments" => "comments#index", via: :options 
   end
 
   resources :posts do
-    resources :comments, only: [:new, :create, :edit, :update]
+    resources :comments
+    match "/comments" => "comments#index", via: :options 
   end
 
   #resources :posts
   #resources :events
   #get 'welcome/index'
   match "/posts" => "posts#index", via: :options  
+  #match "/comments" => "comments#index", via: :options 
   #resources :posts
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

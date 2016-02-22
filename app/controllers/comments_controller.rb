@@ -1,4 +1,31 @@
 class CommentsController < ApplicationController
+	#respond_to :html, :xml, :json
+
+	# before_filter :set_headers
+
+	# def set_headers
+	#   puts 'CommentsController.set_headers'
+	#   if request.headers["HTTP_ORIGIN"]     
+	#   # better way check origin
+	#   # if request.headers["HTTP_ORIGIN"] && /^https?:\/\/(.*)\.some\.site\.com$/i.match(request.headers["HTTP_ORIGIN"])
+	#     headers['Access-Control-Allow-Origin'] = request.headers["HTTP_ORIGIN"]
+	#     headers['Access-Control-Expose-Headers'] = 'ETag'
+	#     headers['Access-Control-Allow-Methods'] = 'GET, POST, PATCH, PUT, DELETE, OPTIONS, HEAD'
+	#     headers['Access-Control-Allow-Headers'] = '*,x-requested-with,Content-Type,If-Modified-Since,If-None-Match,Auth-User-Token'
+	#     headers['Access-Control-Max-Age'] = '86400'
+	#     headers['Access-Control-Allow-Credentials'] = 'true'
+	#   end
+	# end 
+
+	def index
+		@commentable = find_commentable
+		@comments = @commentable.comments
+		respond_to do |format|
+		    format.html 
+		    format.json { render json: @comments }
+		end
+	end
+
   def new
     @commentable = find_commentable
     @comment = @commentable.comments.new
@@ -6,9 +33,11 @@ class CommentsController < ApplicationController
 
   def create
     @commentable = find_commentable
-    @commentcomment = @commentable.comments.new(comment_params)
+    @comment = @commentable.comments.new(comment_params)
+    puts @commentable.inspect
+    puts @comment.inspect
 
-    if @commentcomment.save
+    if @comment.save
       redirect_to context_url(find_commentable), notice: "The comment has been successfully created."
     end
   end
@@ -28,14 +57,15 @@ class CommentsController < ApplicationController
 
 private
   def comment_params
-    params.require(:comment, :created_by).permit!
+    #params.require(:name, :created_by).permit!
+    params.require(:comment).permit(:name, :created_by)
   end
 
   def context_url(context)
     if Event === context
-      events_path(context)
+      event_path(context)
     else
-      posts_path(context)
+      post_path(context)
     end
   end
 

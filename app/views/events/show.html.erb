@@ -24,7 +24,7 @@
 <%= link_to 'Back', events_path %>
 
 <div class="col-md-12">
-  <%= link_to "New Comments", new_event_commentscomments_path(@events), class: "btn btn-primary" %>
+  <%= link_to "New Comments", new_event_comment_path(@event), class: "btn btn-primary" %>
 </div>
 <table class="table table-bordered table-striped">
   <thead>
@@ -35,13 +35,13 @@
       <th>&nbsp;</th>
     </tr>
   </thead>
-  <% if @events.comments.count > 0 %>
-    <% @events.comments.each do |comment| %>
+  <% if @event.comments.count > 0 %>
+    <% @event.comments.each do |comment| %>
       <tr>
         <td><%= comment.name %></td>
         <td><%= comment.created_by %></td>
         <td><%= time_ago_in_words comment.created_at %> ago</td>
-        <td><%= link_to "Edit", edit_event_interaction_path(@events, comment), class:"btn btn-default" %></td>
+        <td><%= link_to "Edit", edit_event_comment_path(@event, comment), class:"btn btn-default" %></td>
       </tr>
     <% end %>
   <% else %>
